@@ -15,7 +15,6 @@ function longWord(str) {
 }
 const arrLongWord = str => str.split(' ').reduce((accumulate, current) => Math.max(current.length, accumulate), 0)
 
-
 // 3 biggest num
 function biggestNum(arr) {
     return arr.map(innerArr => innerArr.reduce((accumulate, current) => Math.max(accumulate, current)))
@@ -63,7 +62,6 @@ function isInclude (arr) {
 }
 const arrIsInclude = ([firstString, secondString]) => secondString
     .split('').every(letter => new RegExp(letter, 'i').test(firstString))
-
 
 // 9
 function matrix (arr, num) {
