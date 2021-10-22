@@ -5,8 +5,7 @@ function factorial(num) {
     }
     return num + factorial(num - 1)
 }
-console.log(`1.`)
-console.log(factorial(5))
+const arrFactorial = num => num <= 1 ? 1 : num + factorial(num - 1)
 
 
 // 2 longest string
@@ -14,63 +13,75 @@ function longWord(str) {
     const stringsArr = str.split(' ').sort((a, b) => a.length - b.length)
     return stringsArr[stringsArr.length - 1].length
 }
-console.log('2.')
-console.log(longWord('lvalue tttt ttt ff f'))
+const arrLongWord = str => str.split(' ').reduce((accumulate, current) => Math.max(current.length, accumulate), 0)
 
 
 // 3 biggest num
-const biggestNum = arr => arr.map(innerArr => innerArr.reduce((accumulate, current) => Math.max(accumulate, current)))
+function biggestNum(arr) {
+    return arr.map(innerArr => innerArr.reduce((accumulate, current) => Math.max(accumulate, current)))
+}
+const arrBiggestNum = arr => arr.map(innerArr => innerArr.reduce((accumulate, current) => Math.max(accumulate, current)))
 
-console.log(`3.`)
-console.log(biggestNum([[1, 2, 11, 3], [4, 80, 5], [6, 7, 8, 9, 4]]))
 
 // 4 string max length
-const stringLength = (str, num) => str.slice(0, num) + '...'
+function stringLength(str, num) {
+    return str.slice(0, num) + '...'
+}
+const arrStringLength = (str, num) => str.slice(0, num) + '...'
 
-console.log(`4.`)
-console.log(stringLength('qwertyuiop', 5))
 
 // 5 Register
-const changeRegister = str => str.split(' ').map(word => word.toLowerCase().replace(/^./, word => word.toUpperCase())).join(' ')
+function changeRegister(str) {
+    return str
+        .split(' ').map(word => word.toLowerCase().replace(/^./, word => word.toLowerCase())).join(' ')
+}
+const arrChangeRegister = str => str
+    .split(' ').map(word => word.toLowerCase().replace(/^./, word => word.toUpperCase())).join(' ')
 
-console.log(`5.`)
-console.log(changeRegister('raz dVa TrI CHETIRE'))
 
 
 // 6 Copy
-const arrayInserting = (arr1, arr2, num) => [...arr2.slice(0, num), ...arr1, ...arr2.slice(num)]
+function inserting(arr1, arr2, num) {
+    return [...arr2.slice(0, num), ...arr1, ...arr2.slice(num)]
+}
+const arrInserting = (arr1, arr2, num) => [...arr2.slice(0, num), ...arr1, ...arr2.slice(num)]
 
-console.log(`6.`)
-console.log(arrayInserting([1,2], [3,4,5], 2))
 
 // 7
-const deleteFalsy = arr => arr.filter(value => !!value)
+function deleteFalsy(arr) {
+    return arr.filter(value => !!value)
+}
+const arrDeleteFalsy = arr => arr.filter(value => !!value)
 
-console.log(`7. Deleting falsy values from array [false, true, 0, '', "", undefined, null, NaN, 1]:`)
-console.log(deleteFalsy([false, true, 0, '', "", undefined, null, NaN, 1]))
 
 // 8
-const arrInclude = (arr) => {
+function isInclude (arr) {
     const [firstString, secondString] = arr
     return secondString
         .split('')
         .every(letter => new RegExp(letter, 'i').test(firstString))
 }
-console.log(`8.`)
-console.log(arrInclude(['aloha', 'hola']))
+const arrIsInclude = ([firstString, secondString]) => secondString
+    .split('').every(letter => new RegExp(letter, 'i').test(firstString))
+
 
 // 9
-const matrix = (arr, num) => {
+function matrix (arr, num) {
     if (arr.length < num) {
         return arr
     }
     return [arr.slice(0, num), ...matrix(arr.slice(num), num)]
 }
-console.log(`9.`)
-console.log(matrix([1,2,3,4,5,6,7,8,9,10], 2))
+
+const arrMatrix = (arr, num) => arr.length < num ? arr : [arr.slice(0, num), ...arrMatrix(arr.slice(num), num)]
+
 
 // 10
-const recursion = (arr, num) => num <= 0 ? arr : [num, ...recursion(arr, num - 1)]
+function recursion(arr, num) {
+    if (num <= 0) {
+        return arr
+    }
+    return [num, ...recursion(arr, num - 1)]
+}
 
-console.log(`10. `)
-console.log(recursion([], 4))
+const arrRecursion = (arr, num) => num <= 0 ? arr : [num, ...arrRecursion(arr, num - 1)]
