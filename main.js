@@ -5,7 +5,7 @@ function factorial(num) {
     }
     return num + factorial(num - 1)
 }
-const arrFactorial = num => num <= 1 ? 1 : num + factorial(num - 1)
+const arrFactorial = num => num <= 1 ? 1 : num + arrFactorial(num - 1)
 
 
 // 2 longest string
