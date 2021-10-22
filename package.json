@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/mcleodheads/jsTasks/issues"
   },
-  "homepage": "https://github.com/mcleodheads/jsTasks#readme"
+  "homepage": "https://github.com/mcleodheads/jsTasks#readme",
+  "devDependencies": {
+    "mocha": "^9.1.3"
+  }
 }
