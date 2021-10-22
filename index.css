@@ -1,0 +1,52 @@
+.inp {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 8px 10px 8px 15px;
+
+    position: static;
+    width: 212px;
+    height: 36px;
+    left: 0px;
+    top: 25px;
+
+    /* white */
+
+    background: #FFFFFF;
+    border: 1px solid rgba(21, 25, 29, 0.3);
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 5px 0px;
+}
+
+.la {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 140%;
+    /* identical to box height, or 20px */
+
+    display: flex;
+    align-items: center;
+
+    /* gray */
+
+    color: #939393;
+
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 5px 0px;
+}
