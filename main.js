@@ -1,11 +1,36 @@
+let assert = require('assert')
+let describe = require ('mocha').describe;
+
+
 // 1 factorial
 function factorial(num) {
-    if (num <= 1) {
-        return 1
+    if (isNaN(num)) {
+        return
+    }
+    if (num < 0) {
+        return 0
     }
     return num + factorial(num - 1)
 }
 const arrFactorial = num => num <= 1 ? 1 : num + arrFactorial(num - 1)
+
+// FACTORIAL TESTS
+describe('Factorial', function () {
+    function makeTest(number) {
+        it(`Факториал ${number} = ${arrFactorial(number)}`, function () {
+            assert.equal(factorial(number), arrFactorial(number))
+        });
+        it(`Факториал -1 = 0 при отрицательном значении`, function () {
+            assert.equal(factorial(-1), 0)
+        });
+        it(`Факториал undefined при строковом значении `, function () {
+            assert.equal(factorial('abc'), undefined)
+        });
+    }
+    for (let i = 1; i < 10; i++) {
+        makeTest(i)
+    }
+})
 
 
 // 2 longest string
@@ -14,6 +39,12 @@ function longWord(str) {
     return stringsArr[stringsArr.length - 1].length
 }
 const arrLongWord = str => str.split(' ').reduce((accumulate, current) => Math.max(current.length, accumulate), 0)
+
+// describe('Longest string', function () {
+//     function makeTests(str) {
+//
+//     }
+// })
 
 // 3 biggest num
 function biggestNum(arr) {
