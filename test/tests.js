@@ -18,7 +18,7 @@ describe('Factorial', function () {
     it(`Факториал undefined при строковом значении `, function () {
         assert.equal(tasks.factorial('abc'), 0)
     });
-    it(`Факториал undefined при undefined`, function () {
+    it(`Факториал 0 при undefined`, function () {
         assert.equal(tasks.factorial(undefined), 0)
     });
 

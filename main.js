@@ -4,7 +4,6 @@ let describe = mocha.describe
 let it = mocha.it
 let math = require('mathjs')
 
-
 // 1 factorial
 function factorial(num) {
     if (num < 0 || isNaN(num)) {
@@ -16,10 +15,8 @@ function factorial(num) {
     return num * factorial(num - 1)
 }
 
-
 const arrFactorial = num => num <= 1 ? 1 : num * arrFactorial(num - 1)
 // FACTORIAL TESTS
-
 
 
 // 2 longest string
