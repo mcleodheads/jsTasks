@@ -109,124 +109,25 @@ function recursion(arr, num) {
 
 const arrRecursion = (arr, num) => num <= 0 ? arr : [num, ...arrRecursion(arr, num - 1)]
 
-// TESTS
-describe('Factorial', function () {
-    function makeTest(number) {
-        it(`Факториал ${number} = ${arrFactorial(number)}`, function () {
-            assert.equal(factorial(number), math.factorial(number))
-        });
-        it(`Факториал -${number} = 0 при отрицательном значении`, function () {
-            assert.equal(factorial(-number), 0)
-        });
-    }
-    it(`Факториал undefined при строковом значении `, function () {
-        assert.equal(factorial('abc'), 0)
-    });
-    it(`Факториал undefined при undefined`, function () {
-        assert.equal(factorial(undefined), 0)
-    });
-
-    for (let i = 1; i < 10; i++) {
-        makeTest(i)
-    }
-})
-
-describe('Longest string', function () {
-    it(`Результат ${longWord('one two three Krankenhaus four five six seven')} для 'one two three Krankenhaus four five six seven'`, function () {
-        assert.equal(longWord('one two three Krankenhaus four five six seven'), 'Krankenhaus'.length)
-    });
-    it(`Результат ${arrLongWord('Ausfahrt Eintreten Säule Übersetzer')} для 'Ausfahrt Eintreten Säule Übersetzer'`, function () {
-        assert.equal(arrLongWord('Ausfahrt Eintreten Säule Übersetzer'), 'Übersetzer'.length)
-
-    });
-})
-
-
-describe('Biggest number', function () {
-    let array = [[1, 2, 3], [4, 5, 6], [7, 8, 10]]
-    it(`Результат ${biggestNum(array)} для ${array}`, function () {
-        assert.deepEqual(biggestNum(array), [3,6,10])
-    })
-    it(`Результат ${arrBiggestNum(array)} для ${array}`, function () {
-        assert.deepEqual(arrBiggestNum(array), [3,6,10])
-    })
-})
-
-describe('String cutter', function () {
-    it('Qwert... for "Qwertyui"', function () {
-        assert.equal(stringLength('Qwertyui', 5), 'Qwert...')
-    });
-    it('Zxc... for "Zxc..."', function () {
-        assert.equal(arrStringLength('Zxcvb', 3), 'Zxc...')
-    });
-    it('12345... for "123456"', function () {
-        assert.equal(arrStringLength('123456', 5), '12345...')
-    });
-})
-
-describe('Register changer' , function () {
-    it('Hola for hOlA', function () {
-        assert.equal(changeRegister('hOlA'), 'Hola')
-    });
-    it('Headphones for HEadPhoneS', function () {
-        assert.equal(arrChangeRegister('HEadPhoneS'), 'Headphones')
-    });
-})
-
-describe('Inserting array into array', function () {
-    it('[4,1,2,3,5] for [1,2,3] [4,5]', function () {
-        assert.deepEqual(inserting([1,2,3], [4,5], 1), [4,1,2,3,5])
-    });
-    it('[4,1,2,3,5] for [1,2,3,4,5,9] [4,5,1,2]', function () {
-        assert.deepEqual(arrInserting([1,2,3,4,5,9], [4,5,1,2], 2), [4,5,1,2,3,4,5,9,1,2])
-    });
-})
-
-describe('Deleting falsy elements from array', function () {
-    it('[1, "Hi"] for [1, false, "", 0, undefined, "Hi"]', function () {
-        assert.deepEqual(deleteFalsy([1, false, "", 0, undefined, "Hi"]), [1, "Hi"])
-    });
-    it('[4, "Uno"] for [1, false, "", 0, undefined, "Hi"]', function () {
-        assert.deepEqual(arrDeleteFalsy([4, false, "", 0,  "Uno"]), [4, "Uno"])
-    });
-    it('[true] for [true]', function () {
-        assert.deepEqual(arrDeleteFalsy([true]), [true])
-    });
-})
-
-describe('First elem include second elem', function () {
-    it('True for ["Hola","aloha"]', function () {
-        assert.equal(isInclude(['Hola','aloha']), true)
-    });
-    it('False for ["Hola","alhazavr"]', function () {
-        assert.equal(arrIsInclude(['Hola','alhazavr']), false)
-    });
-    it('False for [\'12345\',\'12,34,56\']', function () {
-        assert.equal(arrIsInclude(['12345','12,34,56']), false)
-    });
-})
-
-describe('Matrix for array', function () {
-    it('[[1,2,3],[4,5,6],[7,8,9]] for matrix([1,2,3,4,5,6,7,8,9], 3)', function () {
-        assert.deepEqual(matrix([1,2,3,4,5,6,7,8,9], 3), [[1,2,3],[4,5,6],[7,8,9]])
-    });
-    it('[[1,2,3],[4,5,6],[7,8,9]] for matrix([1,2,3,4,5], 3)', function () {
-        assert.deepEqual(arrMatrix([1,2,3,4,5], 3), [[1,2,3],4,5])
-    });
-    it('[[1,2,3],[4,5,6],[7,8,9]] for matrix([1,2,3,4,5], 3)', function () {
-        assert.deepEqual(arrMatrix([1,2,3,4,'asdb'], 3), [[1,2,3],4,'asdb'])
-    });
-})
-
-
-describe('recursion for array', function () {
-    it('[9,8,7,6,5,4,3,2,1] for recursion([], 9)', function () {
-        assert.deepEqual(recursion([], 9), [9,8,7,6,5,4,3,2,1])
-    });
-    it('[4,3,2,1] for recursion([], 9)', function () {
-        assert.deepEqual(arrRecursion([], 4), [4,3,2,1])
-    });
-    it('[4,3,2,1] for recursion([], 9)', function () {
-        assert.deepEqual(arrRecursion([], 4), [4,3,2,1,'qwe']) // Провальный тест
-    });
-})
+module.exports = {
+    factorial,
+    arrFactorial,
+    longWord,
+    arrLongWord,
+    biggestNum,
+    arrBiggestNum,
+    stringLength,
+    arrStringLength,
+    changeRegister,
+    arrChangeRegister,
+    inserting,
+    arrInserting,
+    deleteFalsy,
+    arrDeleteFalsy,
+    isInclude,
+    arrIsInclude,
+    matrix,
+    arrMatrix,
+    recursion,
+    arrRecursion,
+}
