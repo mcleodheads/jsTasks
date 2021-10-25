@@ -20,5 +20,8 @@
   "devDependencies": {
     "mathjs": "^9.5.1",
     "mocha": "^9.1.3"
+  },
+  "dependencies": {
+    "prompt": "^1.2.0"
   }
 }
