@@ -39,11 +39,12 @@ const arrBiggestNum = arr => arr.map(innerArr => innerArr.reduce((accumulate, cu
 
 // 4 string max length
 function stringLength(str, num) {
+    if (str.length <= num) {
+        return str
+    }
     return str.slice(0, num) + '...'
 }
-const arrStringLength = (str, num) => str.slice(0, num) + '...'
-
-
+const arrStringLength = (str, num) => str.length <= num ? str : str.slice(0, num) + '...'
 
 
 // 5 Register
@@ -87,24 +88,26 @@ const arrIsInclude = ([firstString, secondString]) => secondString
 
 // 9
 function matrix(arr, num) {
-    if (arr.length < num) {
-        return arr
+    if (arr.length <= num) {
+        return [arr]
     }
     return [arr.slice(0, num), ...matrix(arr.slice(num), num)]
 }
-
-const arrMatrix = (arr, num) => arr.length < num ? arr : [arr.slice(0, num), ...arrMatrix(arr.slice(num), num)]
+const arrMatrix = (arr, num) => arr.length <= num ? [arr] : [arr.slice(0, num), ...arrMatrix(arr.slice(num), num)]
 
 
 // 10
 function recursion(arr, num) {
-    if (num <= 0) {
+    if (num === 0) {
         return arr
+    }
+    if (num < 0) {
+        return [num, ...recursion([0, 1], num + 1)]
     }
     return [num, ...recursion(arr, num - 1)]
 }
 
-const arrRecursion = (arr, num) => num <= 0 ? arr : [num, ...arrRecursion(arr, num - 1)]
+const arrRecursion = (arr, num) => num === 0 ? [] : num < 0 ? [num, ...recursion([0, 1], num + 1)] : [num, ...recursion(arr, num - 1)]
 
 module.exports = {
     factorial,
