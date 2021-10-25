@@ -107,7 +107,8 @@ function recursion(arr, num) {
     return [num, ...recursion(arr, num - 1)]
 }
 
-const arrRecursion = (arr, num) => num === 0 ? [] : num < 0 ? [num, ...recursion([0, 1], num + 1)] : [num, ...recursion(arr, num - 1)]
+const arrRecursion = (arr, num) =>
+    num === 0 ? [] : num < 0 ? [num, ...recursion([0, 1], num + 1)] : [num, ...recursion(arr, num - 1)]
 
 module.exports = {
     factorial,

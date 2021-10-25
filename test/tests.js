@@ -5,7 +5,6 @@ let mocha = require('mocha')
 let describe = mocha.describe
 let it = mocha.it
 let math = require('mathjs')
-const {fillArrayPure} = require("../main");
 
 // 1
 describe('Factorial', function () {
@@ -51,7 +50,6 @@ describe('Biggest number', function () {
     })
 })
 
-
 // 4
 describe('String cutter', function () {
     it('"Qwert..." for "Qwertyui"', function () {
@@ -74,7 +72,6 @@ describe('Register changer' , function () {
         assert.equal(tasks.arrChangeRegister('HEadPhoneS'), 'Headphones')
     });
 })
-
 
 // 6
 describe('Inserting array into array', function () {
