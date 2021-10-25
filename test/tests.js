@@ -4,7 +4,6 @@ let mocha = require('mocha')
 let describe = mocha.describe
 let it = mocha.it
 let math = require('mathjs')
-const {recursion, arrRecursion} = require("../main");
 
 // 1
 describe('Factorial', function () {
