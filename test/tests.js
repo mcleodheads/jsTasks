@@ -125,10 +125,10 @@ describe('Matrix for array', function () {
 // 10
 describe('recursion for array', function () {
     it('[9,8,7,6,5,4,3,2,1] for recursion([], 9)', function () {
-        assert.deepEqual(tasks.arrRecursion([], 9), [9,8,7,6,5,4,3,2,1])
+        assert.deepEqual(tasks.recursion([], 9), [9,8,7,6,5,4,3,2,1])
     });
     it('[4,3,2,1] for recursion([], 4)', function () {
-        assert.deepEqual(tasks.arrRecursion([], 4), [4,3,2,1])
+        assert.deepEqual(tasks.recursion([], 4), [4,3,2,1])
     });
     it('FAILED: [4,3,2,1,\'qwe\'] for recursion([], 4)', function () {
         assert.notEqual(tasks.arrRecursion([], 4), [4,3,2,1,'qwe']) // Провальный тест
