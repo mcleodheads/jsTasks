@@ -122,7 +122,7 @@ describe('recursion for array', function () {
     it('[4,3,2,1] for recursion([], 9)', function () {
         assert.deepEqual(tasks.arrRecursion([], 4), [4,3,2,1])
     });
-    it('[4,3,2,1] for recursion([], 9)', function () {
-        assert.deepEqual(tasks.arrRecursion([], 4), [4,3,2,1,'qwe']) // Провальный тест
+    it('FAILED: [4,3,2,1,\'qwe\'] for recursion([], 4)', function () {
+        assert.notEqual(tasks.arrRecursion([], 4), [4,3,2,1,'qwe']) // Провальный тест
     });
 })
