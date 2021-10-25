@@ -87,6 +87,9 @@ describe('String cutter', function () {
     it('Zxc... for "Zxc..."', function () {
         assert.equal(arrStringLength('Zxcvb', 3), 'Zxc...')
     });
+    it('12345... for "123456"', function () {
+        assert.equal(arrStringLength('123456', 5), '12345...')
+    });
 })
 
 
@@ -101,11 +104,11 @@ const arrChangeRegister = str => str
     .split(' ').map(word => word.toLowerCase().replace(/^./, word => word.toUpperCase())).join(' ')
 
 describe('Register changer' , function () {
-    it('Hola Dora for hOlA dORA', function () {
-        assert.equal(changeRegister('hOlA dORA'), 'Hola Dora')
+    it('Hola for hOlA', function () {
+        assert.equal(changeRegister('hOlA'), 'Hola')
     });
-    it('Hola Dora for hOlA dORA', function () {
-        assert.equal(arrChangeRegister('hOlA dORA'), 'Hola Dora')
+    it('Headphones for HEadPhoneS', function () {
+        assert.equal(arrChangeRegister('HEadPhoneS'), 'Headphones')
     });
 })
 
@@ -139,6 +142,9 @@ describe('Deleting falsy elements from array', function () {
     it('[4, "Uno"] for [1, false, "", 0, undefined, "Hi"]', function () {
         assert.deepEqual(arrDeleteFalsy([4, false, "", 0,  "Uno"]), [4, "Uno"])
     });
+    it('[true] for [true]', function () {
+        assert.deepEqual(arrDeleteFalsy([true]), [true])
+    });
 })
 
 
@@ -160,6 +166,9 @@ describe('First elem include second elem', function () {
     it('False for ["Hola","alhazavr"]', function () {
         assert.equal(arrIsInclude(['Hola','alhazavr']), false)
     });
+    it('False for [\'12345\',\'12,34,56\']', function () {
+        assert.equal(arrIsInclude(['12345','12,34,56']), false)
+    });
 })
 
 // 9
@@ -179,6 +188,9 @@ describe('Matrix for array', function () {
     it('[[1,2,3],[4,5,6],[7,8,9]] for matrix([1,2,3,4,5], 3)', function () {
         assert.deepEqual(arrMatrix([1,2,3,4,5], 3), [[1,2,3],4,5])
     });
+    it('[[1,2,3],[4,5,6],[7,8,9]] for matrix([1,2,3,4,5], 3)', function () {
+        assert.deepEqual(arrMatrix([1,2,3,4,'asdb'], 3), [[1,2,3],4,'asdb'])
+    });
 })
 
 // 10
@@ -197,5 +209,8 @@ describe('recursion for array', function () {
     });
     it('[4,3,2,1] for recursion([], 9)', function () {
         assert.deepEqual(arrRecursion([], 4), [4,3,2,1])
+    });
+    it('[4,3,2,1] for recursion([], 9)', function () {
+        assert.deepEqual(arrRecursion([], 4), [4,3,2,1,'qwe']) // Провальный тест
     });
 })
