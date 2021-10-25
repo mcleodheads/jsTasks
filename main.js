@@ -80,7 +80,7 @@ function stringLength(str, num) {
 }
 const arrStringLength = (str, num) => str.slice(0, num) + '...'
 
-describe('String max length', function () {
+describe('String cutter', function () {
     it('Qwert... for "Qwertyui"', function () {
         assert.equal(stringLength('Qwertyui', 5), 'Qwert...')
     });
@@ -176,8 +176,8 @@ describe('Matrix for array', function () {
     it('[[1,2,3],[4,5,6],[7,8,9]] for matrix([1,2,3,4,5,6,7,8,9], 3)', function () {
         assert.deepEqual(matrix([1,2,3,4,5,6,7,8,9], 3), [[1,2,3],[4,5,6],[7,8,9]])
     });
-    it('[[1,2,3],[4,5,6],[7,8,9]] for matrix([1,2,3,4,5,6,7,8,9], 3)', function () {
-        assert.deepEqual(arrMatrix([1,2,3,4,5,6,7,8,9], 3), [[1,2,3],[4,5,6],[7,8,9]])
+    it('[[1,2,3],[4,5,6],[7,8,9]] for matrix([1,2,3,4,5], 3)', function () {
+        assert.deepEqual(arrMatrix([1,2,3,4,5], 3), [[1,2,3],4,5])
     });
 })
 
