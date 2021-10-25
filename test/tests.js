@@ -1,10 +1,10 @@
-// TESTS
 const tasks = require('../main')
 let assert = require('assert')
 let mocha = require('mocha')
 let describe = mocha.describe
 let it = mocha.it
 let math = require('mathjs')
+const {recursion, arrRecursion} = require("../main");
 
 // 1
 describe('Factorial', function () {
@@ -125,15 +125,18 @@ describe('Matrix for array', function () {
 // 10
 describe('recursion for array', function () {
     it('[9,8,7,6,5,4,3,2,1] for recursion([], 9)', function () {
-        assert.deepEqual(tasks.recursion([], 9), [9,8,7,6,5,4,3,2,1])
+        let myArray = []
+        tasks.recursion(myArray, 9);
+        assert.deepEqual(myArray, [9,8,7,6,5,4,3,2,1])
     });
     it('[4,3,2,1] for recursion([], 4)', function () {
-        assert.deepEqual(tasks.recursion([], 4), [4,3,2,1])
+        let myArray = []
+        tasks.recursion(myArray, 4);
+        assert.deepEqual(myArray, [4,3,2,1])
     });
-    it('FAILED: [4,3,2,1,\'qwe\'] for recursion([], 4)', function () {
-        assert.notEqual(tasks.arrRecursion([], 4), [4,3,2,1,'qwe']) // Провальный тест
-    });
-    it('[-3,-2,-1,0,1] for recursion([], -3)', function () {
-        assert.deepEqual(tasks.arrRecursion([], -3), [-3,-2,-1,0,1])
-    });
+    it('asdasd', function () {
+        let myArray = []
+        tasks.recursion(myArray, 10);
+        assert.deepEqual(myArray, [10,9,8,7,6,5,4,3,2,1])
+    })
 })

@@ -79,13 +79,11 @@ const arrMatrix = (arr, num) => arr.length <= num ? [arr] : [arr.slice(0, num), 
 
 // 10
 function recursion(arr, num) {
-    if (num === 0) {
+    if (num <= 0) {
         return arr
     }
-    if (num < 0) {
-        return [num, ...recursion([0, 1], num + 1)]
-    }
-    return [num, ...recursion(arr, num - 1)]
+    arr.push(num)
+    return recursion(arr, num - 1)
 }
 const arrRecursion = (arr, num) =>
     num === 0 ? [] : num < 0 ? [num, ...recursion([0, 1], num + 1)] : [num, ...recursion(arr, num - 1)]
