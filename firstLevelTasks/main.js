@@ -1,9 +1,3 @@
-let assert = require('assert')
-let mocha = require('mocha')
-let describe = mocha.describe
-let it = mocha.it
-let math = require('mathjs')
-
 // 1 factorial
 function factorial(num) {
     if (num < 0 || isNaN(num)) {

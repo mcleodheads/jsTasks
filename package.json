@@ -22,6 +22,7 @@
     "mocha": "^9.1.3"
   },
   "dependencies": {
-    "prompt": "^1.2.0"
+    "prompt": "^1.2.0",
+    "prompt-sync": "^4.2.0"
   }
 }

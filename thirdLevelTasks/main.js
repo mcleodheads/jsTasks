@@ -1,4 +1,3 @@
-const {pi} = require("mathjs");
 const prompt = require('prompt-sync')()
 // 1
 function sumAll(arr) {
