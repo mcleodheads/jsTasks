@@ -1,1 +1,2 @@
-# JS tasks
+# JS task <br/>
+npm test
