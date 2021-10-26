@@ -101,7 +101,7 @@ describe('getSum', () => {
     it('Get sum of 2 args', function () {
         assert.equal(tasks.getSum(1,5), 6)
     })
-    it('Wait for second argument', async() => {
+    it('Wait for second argument', () => {
         const value = prompt('Insert value for second argument: ')
         assert.equal(tasks.getSum(1, parseInt(value)), parseInt(value) + 1)
     })
