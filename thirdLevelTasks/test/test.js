@@ -3,7 +3,7 @@ let assert = require('assert')
 let mocha = require('mocha')
 let describe = mocha.describe
 let it = mocha.it
-let prompt = require('prompt-sync')
+let prompt = require('prompt-sync')()
 
 // 1.sumAll
 describe('sumAll' , function () {
@@ -15,7 +15,7 @@ describe('sumAll' , function () {
 // 2.getUnique
 describe('getUnique', function () {
     it('', function () {
-        assert.deepEqual(getUnique([1,2,3], [2,3,4]), [1,4])
+        assert.deepEqual(tasks.getUnique([1,2,3], [2,3,4]), [1,4])
     })
 })
 
@@ -25,6 +25,14 @@ describe('delElements', function () {
         const myArray = [1,2,3,4,5]
         tasks.delElements(myArray, 1,2,3)
         assert.deepEqual(myArray, [4,5])
+    })
+})
+
+// 4.whatIsInAName
+describe('whatIsInAName', function() {
+    it('Get objects from array, that contain object', function () {
+        assert.deepEqual(tasks.whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 },
+            { "apple": 1, "bat": 2, "cookie": 2 }, { "bat":2 }], { "apple": 1, "bat": 2 }), [ { apple: 1, bat: 2 }, { apple: 1, bat: 2, cookie: 2 } ])
     })
 })
 
@@ -74,6 +82,13 @@ describe('getPrimes', function () {
     })
 })
 
+// 11.dropElements
+describe('dropElements', function () {
+    it('Drop elements from array until function return true', function () {
+        assert.deepEqual(tasks.dropElements([1,2,3,4], n => n >= 3), [3,4])
+    })
+})
+
 // 12.steamrollArray
 describe('steamrollArray', function () {
     it ('Steam roll array', function () {
@@ -87,7 +102,7 @@ describe('getSum', () => {
         assert.equal(tasks.getSum(1,5), 6)
     })
     it('Wait for second argument', async() => {
-        const value = await prompt.get('Insert value for second argument: ')
-        assert.equal(tasks.getSum(1, value), 1 + parseInt(value))
+        const value = prompt('Insert value for second argument: ')
+        assert.equal(tasks.getSum(1, parseInt(value)), parseInt(value) + 1)
     })
 })
