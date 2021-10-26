@@ -245,7 +245,7 @@ describe('Third level task', function () {
         })
         it('Wait for second argument', () => {
             const value = prompt('Insert value for second argument: ')
-            assert.equal(thirdLevel.getSum(0, parseInt(value)), parseInt(value))
+            assert.equal(thirdLevel.getSum(0, parseInt(value)), parseInt(value) + 0)
         })
     })
 })
