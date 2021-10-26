@@ -1,4 +1,4 @@
-const tasks = require('../main')
+const tasks = require('../firstLevelTasks/main')
 let assert = require('assert')
 let mocha = require('mocha')
 let describe = mocha.describe
